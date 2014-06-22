@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script>
+    function checkClassChange() {
+       $('slide.current').each(function() {
+          if($(this).data('fired')) {
+            return false;
+          }
+
+          $(this).data('fired', true);
+          var scheme = $(this).attr('data-scheme');
+          if(scheme) {
+            $.get('http://localhost:8001/scheme', {
+              scheme: scheme,
+            });
+          }
+       });
+    }
+
+    setInterval(checkClassChange, 600);
+  </script>
+
+  <style>
+    body {
+      background-image: radial-gradient(50% 50%, #b1dfff 0%, #356bc9 890px);
+    }
+
+    #dmx-address td {
+      font-weight: normal;
+      padding: 6px;
+      font-size: 14px;
+    }       
+
+    #dmx-address hgroup + article {
+      margin-top: 15px;
+    }
+
+    .button {
+      border: 1px solid #555555;
+      background-color: #EEEEEE;
+      display: inline-block;
+      margin: 10px;
+
+      text-align: center;
+      padding: 10px;
+
+      border-radius: 10px;
+    }
+
+    .button-stop {
+      color: #cb2929;
+      background-color: #efc0c0;
+    }
+
+    .button.active {
+      background-color: #a8f1a4;
+    }
+
+    .button-stop.active {
+      background-color: #ba7373;
+    }
+  </style>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground" data-scheme="initial">
+    <aside class="gdbar"><img src="images/backspace/icon.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide data-scheme="dim">
+    <hgroup>
+      <h2>Themen</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Einführung in DMX</li>
+        <li>Elektrische Eigenschaften</li>
+        <li>Das Protokoll</li>
+        <li>Unser Aufbau</li>
+        <li>Demo</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Einführung in DMX</h2>
+      <h3>Fakten, Fakten, Fakten...</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>RS-485</li>
+        <li>Spannungsbereich -7 V und +12 V</li>
+        <li>512 Bytes Daten</li>
+        <li>1986 standardisiert (DMX512)</li>
+        <li>... und 1990 (USITT DMX512/1990)</li>
+        <li>... und 1998 (USITT DMX512-A)</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="images/backspace/standards.png" width="950">
+      <footer class="source">source: xkcd.com</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Elektrische Eigenschaften</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>RS-485 über 3-Pin XLR</li>
+        <li>Differenzgetrieben</li>
+        <li>Lange Leitungen (~1,2km)</li>
+        <li>Terminator 120 Ohm</li>
+        <li>Daisy-Chain</li>
+      </ul>
+
+      <div class="build flexbox vcenter">
+        <br>
+        <img src="images/backspace/SimpleDmxUniverse.gif" width="100%">
+        <footer class="source">source: wikipedia</footer>
+      </div>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Elektrische Eigenschaften</h2>
+      <h3>differenzielle Übertragung</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/backspace/diff_signal_0.png" height="100%">
+      <footer class="source">source: wikipedia.org</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Elektrische Eigenschaften</h2>
+      <h3>differenzielle Übertragung</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/backspace/diff_signal_1.png" height="100%">
+      <footer class="source">source: wikipedia.org</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Elektrische Eigenschaften</h2>
+      <h3>differenzielle Übertragung</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/backspace/diff_signal_2.png" height="100%">
+      <footer class="source">source: wikipedia.org</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Elektrische Eigenschaften</h2>
+      <h3>differenzielle Übertragung</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/backspace/diff_signal_3.png" height="100%">
+      <footer class="source">source: wikipedia.org</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Elektrische Eigenschaften</h2>
+      <h3>differenzielle Übertragung</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/backspace/diff_signal_4.png" height="100%">
+      <footer class="source">source: wikipedia.org</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Das Protokoll</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>250 kHz</li>
+        <li>Start markiert mit <b>"Mark After Break" (MAB)</b></li>
+        <li>Beginnt mit 0x00</li>
+        <li>512 Byte Daten</li>
+        <li>Wertebereich 0-255 pro Kanal</li>
+        <li>8N2 (8 Bits, 2 Stopbits)</li>
+        <li>Wird dauerhaft gesendet</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Das Protokoll</h2>
+      <h3>Einfache Verarbeitung auf dem Microcontroller</h3>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="c">
+ISR(USART_RX_vect){
+
+    uint8_t tmp = UDR0;
+
+    if(UCSR0A & (1 << FE0)) {  // Check if stopbit is set - new package begins 
+        dmx_valid  = 0;
+
+        if(tmp == 0) {
+            dmx_valid = 1;
+            dmx_rx_cnt = 1;
+        }
+
+        return;
+    }
+
+    if(dmx_valid) {
+        dmx[dmx_rx_cnt++] = tmp;
+    }
+}
+</pre>
+      <footer class="source">dmx2rgb project</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Das Protokoll</h2>
+      <h3>Geräteadressierung</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+          <li>Geräte haben eigene Adressen</li>
+          <li>Geräte belegen mehrere Kanäle</li>
+          <li>Einstellbar per DIP oder per Taster</li>
+        </ul>
+        <div class="build">
+          <img src="images/backspace/dip-switch.jpg">
+        </div>
+    </article>
+  </slide>
+
+  <slide id="dmx-address">
+    <hgroup>
+      <h2>Unser Aufbau</h2>
+      <h3>Geräteadressierung</h3>
+    </hgroup>
+    <article class="smaller">
+      <table>
+        <tr>
+          <th>Produkt</th>
+          <th>Ort</th>
+          <th>Adresse</th>
+          <th>#CH</th>
+        </tr>
+        <tr data-fixtures="h_0,h_1,h_2">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Tür Rechts</td>
+          <td>34</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="h_3,h_4,h_5">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Tür Links</td>
+          <td>45</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="l_6,l_7,l_8">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Fenster Rechts</td>
+          <td>56</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="l_3,l_4,l_5">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Fenter Mitte</td>
+          <td>67</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="l_0,l_1,l_2">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Fenster Links</td>
+          <td>78</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="r_6,r_7,r_8">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Über Bar</td>
+          <td>89</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="r_3,r_4,r_5">
+          <td>Stairville LED Bar 252 DMX RGB</td>
+          <td>Lounge, Über Logo</td>
+          <td>100</td>
+          <td>11</td>
+        </tr>
+        <tr data-fixtures="b_0">
+          <td>LED Stripe</td>
+          <td>Lounge, Regalbrett #1 (unten)</td>
+          <td>200</td>
+          <td>3</td>
+        </tr>
+        <tr data-fixtures="b_1">
+          <td>LED Stripe</td>
+          <td>Lounge, Regalbrett #2</td>
+          <td>204</td>
+          <td>3</td>
+        </tr>
+        <tr data-fixtures="b_2">
+          <td>LED Stripe</td>
+          <td>Lounge, Regalbrett #3</td>
+          <td>207</td>
+          <td>3</td>
+        </tr>
+        <tr data-fixtures="b_3">
+          <td>LED Stripe</td>
+          <td>Lounge, Regalbrett #4 (oben)</td>
+          <td>210</td>
+          <td>3</td>
+        </tr>
+        <tr data-fixtures="b_4">
+          <td>LED Stripe</td>
+          <td>Lounge, Brett Tür kurz</td>
+          <td>213</td>
+          <td>3</td>
+        </tr>
+        <tr data-fixtures="b_5">
+          <td>LED Stripe</td>
+          <td>Lounge, Brett Tür lang</td>
+          <td>216</td>
+          <td>3</td>
+        </tr>
+        <tr data-fixtures="ampel">
+          <td>LEDs</td>
+          <td>Ampel</td>
+          <td>219</td>
+          <td>3</td>
+        </tr>
+      </table>
+
+      <script>
+        $('#dmx-address tr')
+          .hover(function() {
+            $('td', this).addClass('highlight');
+
+            if($(this).attr('data-fixtures')) {
+              $.get('http://localhost:8001/specific', {
+                fixtures: $(this).attr('data-fixtures'),
+                color: 'FFFFFF'
+              });
+            }
+
+          }, function() {
+            $('td', this).removeClass('highlight');
+          });
+
+          $('#dmx-address table')
+            .mouseleave(function() {
+              $.get('http://localhost:8001/specific', {});
+            });
+      </script>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Unser Aufbau</h2>
+      <h3>dmx2rgb / LED Stripes</h3>
+    </hgroup>
+    <article>
+      <ul class="build" style="float: left">
+        <li>48 Kanal PWM Dimmer</li>
+        <li>i²c PWM Chip PCA9685</li>
+        <li>IRF7303 n-Kanal MOSFET 2,5A</li>
+        <li>120 Ampere</li>
+        <li>1440 Watt</li>
+      </ul>
+
+      <div class="build">
+        <img src="images/backspace/dmx2rgb.jpg" width="400" style="margin-left: 100px">
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Demo</h2>
+    </hgroup>
+    <article style="text-align: center">
+        <div class="button" data-scheme="wave">Wave</div>
+        <div class="button" data-scheme="alarm">Alarm!</div>
+        <div class="button" data-scheme="sparkle">Sparkle, sparkle, ...</div>
+        <div class="button button-stop" data-scheme="restore">STHAAAAP!</div>
+    </article>
+
+    <script>
+
+      $('.button')
+        .click(function() {
+            $('.button').removeClass('active');
+            $(this).addClass('active');
+
+            $.get('http://localhost:8001/scheme', {
+              scheme: $(this).attr('data-scheme'),
+            });
+
+        });
+
+    </script>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Fragen?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>mail: christopher@hackerspace-bamberg.de</li>
+        <li>xmpp: schinken@jabber.ccc.de</li>
+        <li>http: shoogle.it</li>
+        <li>twitter: @sch1nken</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+</body>
+</html>

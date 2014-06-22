@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+    <head>
+        <title>3D Drucker - Eine Einführung</title>
+
+        <meta charset='utf-8'>
+        <script src='slides.js'></script>
+
+    </head>
+    <style>
+        /* Your individual styles here, or just use inline styles if that’s
+        what you want. */
+        
+        #renovierung-intro{
+            background:  url(images/my/renovierung.jpg) 0px 0px no-repeat;
+        }
+        
+        .two-images {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .teaser_bg {
+            background-size: 100%, 100%;  
+            background-color: white;  
+        }
+
+        .images {
+            list-style-image: none;    
+        }
+
+        .images li {
+            display: inline-block;
+            margin: 3px;
+            list-style-type: none;
+        }
+    
+    </style>
+
+<body style='display: none'>
+
+    <section class='slides layout-regular template-io2011'>
+      
+        <article class='biglogo'>
+        </article>
+
+        <article>
+            <h1>3D Drucker<br>Eine Einführung</h1>
+            <p>
+                schinken
+                <br>
+                November 27, 2012
+            </p>
+        </article>
+
+        <article>
+            <h3>Übersicht</h3>
+            <ul>
+                <li>Einleitung</li>
+                <li>Modelle</li>
+                <li>RepRap</li>
+                <li>Funktionsweise</li>
+                <li>Vom Modell zum Druck</li>
+                <li>Der Druckvorgang</li>
+                <li>Beispiele / Fazit</li>
+            </ul>
+        </article>
+
+        <article id="history-intro" class="fill teaser_bg">
+            <h3>... als 3D Drucker noch aus Holz waren</h3>
+            <h1>Geschichte</h1>
+        </article>
+
+        <article>
+            <h3>Erster 3D Drucker</h3>
+            <ul class="build">
+                <li>1984 - 3D Systems gegründet von Charles Hull</li>
+                <li>1992 - Stereolithographie Apparatus</li>
+                <li>Photopolymer</li>
+                <li>"Lasers"</li>
+            </ul>
+            
+            <div class="build">
+                <img src="images/material/history/stereolithografie.jpg" width="100%">
+            </div>
+            <span class="source">Bildquelle: Wikipedia.org</span>
+        </article>
+
+        <article>
+            <h3>Stereolithografie</h3>
+            <iframe style="height: 450px; width:100%" src="http://www.youtube.com/embed/eKk2vRysioE?start=97&end=169&hd=1" frameborder="0" allowfullscreen></iframe>
+        </article>
+
+        <article>
+            <h3>Zeitraffer</h3>
+            <ul class="build">
+                <li>1984/1992 - 3D Systems</li>
+                <li>1995 - MIT-Studenten prägen den Begriff "3D Printing"</li>
+                <li>2005 - Dr. Adrian Bowyer gründet RepRap Initiative</li>
+                <li>2008 - Self-Replicating Printer</li>
+                <li>2009 - DIY Kits</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Nutzung</h3>
+            <ul class="build">
+                <li>Flugzeugtechnik ('11 Robotic Aircraft)</li>
+                <li>Automotive ('11 Auto "Urbee")</li>
+                <li>Medizin ('03 Niere, '08 Beinprothese, '12 Kiefer)</li>
+                <li>Militär (Ersatzteile)</li>
+                <li>DIY / Rapid Prototyping</lI>
+            </ul>
+        </article>
+
+        <article id="printers-intro" class="fill teaser_bg">
+            <h3>... die wichtigen Modelle auf einem Blick</h3>
+            <h1>Modelle</h1>
+        </article>
+
+        <article>
+            <h3>Orca</h3>
+            <div style="text-align:center">
+                <img src="images/material/printers/orca.jpg" height="450">
+                <span class="source">Quelle: mendel-parts.com</span>
+            </div>
+        </article>
+
+        <article>
+            <h3>Makerbot</h3>
+            <div style="text-align:center">
+                <img src="images/material/printers/makerbot_1.jpg" height="450">
+                <span class="source">Quelle: makerbot.com</span>
+            </div>
+        </article>
+
+        <article>
+            <h3>Ultimaker</h3>
+            <div style="text-align:center; margin-top:20px;">
+                <img src="images/material/printers/ultimaker.jpg" height="450">
+                <span class="source">Quelle: ultimaker.com</span>
+            </div>
+        </article>
+
+        <article>
+            <h3>RepRap</h3>
+            <div style="text-align:center; margin-top:20px;">
+                <img src="images/material/printers/reprap.jpg" height="450">
+                <span class="source">Quelle: grrf.de</span>
+            </div>
+        </article>
+
+        <article id="reprap-intro" class="fill teaser_bg">
+            <h3>...unser Drucker!</h3>
+            <h1>RepRap</h1>
+        </article>
+
+        <article>
+            <h3>Hintergrundinfos</h3>
+            <ul class="build">
+                <li><strong>Rep</strong>licating <strong>Rap</strong>id-Prototyper</li>
+                <li>Pläne und Software sind GPL</li>
+                <li>13. September 2006 - Erster Prototyp (v0.2)</li>
+                <li>28. Mai 2008 - Darwin, v1.0</li>
+                <li>Oktober 2009 - Mendel, v2.0</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Warum RepRap?</h3>
+            <ul class="build">
+                <li>Sehr weit verbreitet</li>
+                <li>Große Community</li>
+                <li>Viele Varianten/Weiterentwicklungen</li>
+                <li>Relativ günstig (Material 500€)</li>
+                <li>Einfacher Aufbau...</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Das Kit</h3>
+            <div  style="text-align: center">
+                <img src="images/material/reprap/reprap_kit_parts.jpg" height="480px" style="border-radius: 10px; margin-top: 10px">
+            </div>
+        </article>
+
+        <article>
+            <h3>Aufbau Part I</h3>
+            <div class="two-images">
+                <img src="images/material/build/geruest_1-1.jpg" height="450">
+                <img src="images/material/build/geruest_1-2.jpg" height="450">
+            </div>
+            <span class="source">Quelle: bobapple</span>
+        </article>
+
+        <article>
+            <h3>Aufbau Part II</h3>
+            <div class="two-images">
+                <img src="images/material/build/geruest_2-1.jpg" height="450">
+                <img src="images/material/build/geruest_2-2.jpg" height="450">
+            </div>
+            <span class="source">Quelle: bobapple</span>
+        </article>
+
+        <article>
+            <h3>Details I</h3>
+            <div class="two-images">
+                <img src="images/material/build/detail_1-1.jpg" height="450">
+                <img src="images/material/build/detail_1-2.jpg" height="450">
+            </div>
+            <span class="source">Quelle: bobapple</span>
+        </article>
+
+        <article>
+            <h3>Details II</h3>
+            <div class="two-images">
+                <img src="images/material/build/finish_1-1.jpg" height="450">
+                <img src="images/material/build/finish_1-2.jpg" height="450">
+            </div>
+            <span class="source">Quelle: bobapple</span>
+        </article>
+
+        <article>
+            <h3>RAMPS</h3>
+            <ul class="build">
+                <li>Arduino Mega</li>
+                <li>Motorsteuerung</li>
+                <li>Temperaturfühler</li>
+                <li>Heizungssteuerung</li>
+                <li>Firmware: Sprinter, Marlin</li>
+            </ul>
+
+            <div class="build">
+                <img src="images/material/reprap/ramps_schematic.png" height="200px" style="border-radius: 10px; margin-top: 10px"><img src="images/material/reprap/ramps.jpg" height="200px" style="border-radius: 10px; margin-top: 10px; margin-left: 70px">
+            </div>
+            <span class="source">Bildquelle: reprap.org</span>
+        </article>
+
+        <article>
+            <h3>RAMPS</h3>
+            <div style="text-align: center">
+                <img src="images/material/reprap/ramps_wiring.png" height="500">
+            </div>
+            <span class="source">Bildquelle: reprap.org</span>
+        </article>
+
+        <article>
+            <h3>Probleme</h3>
+            <ul class="build">
+                <li>Maßangaben stimmten nicht</li>
+                <li>Keine Dokumentation des Extruders</li>
+                <li>Extruderprobleme (Wackeln, Zahnrad)</li>
+                <li>Viele Parameter - Wenig Ahnung</li>
+            </ul>
+        </article>
+
+
+        <article id="reprap-intro" class="fill teaser_bg">
+            <h3>... und wie funktioniert das!?</h3>
+            <h1>Funktionsweise</h1>
+        </article>
+
+        <article>
+            <h3>Schrittmotoren</h3>
+            <img src="images/material/operation/stepper.png" style="margin-top: 90px">
+            <span class="source">Bildquelle: wikipedia.org</span>
+        </article>
+
+        <article>
+            <h3>Extruder / HotEnd</h3>
+            <ul class="build">
+                <li>Messing</li>
+                <li>Beheizt mit 5.6 Ohm Widerstand</li>
+                <li>RepRap Wiki 49 HotEnds</li>
+            </ul>
+            <div style="text-align: center" class="build">
+                <img src="images/material/operation/hotend.jpg" height="300px" style="border-radius: 10px; margin-top: 10px">
+            </div>
+            <span class="source">Bildquelle: reprapsource.com</span>
+        </article>
+
+        <article>
+            <h3>Filament</h3>
+            <ul class="build">
+                <li><strong>PLA</strong>
+                    <ul class="build">
+                        <li>Kunststoffverpackungen</li>
+                        <li>Polylactide / Polymilchsäuren</li>
+                        <li>Biologisch abbaubar</li>
+                        <li>Temperatur ca 190°C</li>
+                    </ul>
+                </li>
+                <li><strong>ABS</strong>
+                    <ul class="build">
+                        <li>Acrylnitril-Butadien-Styrol-Copolymerisat</li>
+                        <li>Temperatur ca 220-250°C</li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Heatbed</h3>
+            <ul class="build">
+                <li>Beheizt durch Strom</li>
+                <li>Bessere Materialhaftung</li>
+                <li>Verhindert verziehen des Drucks bei ABS</li>
+            </ul>
+            <div class="build">
+                <img src="images/material/operation/heatbed_pcb.png" height="300px" style="border-radius: 10px; margin-top: 10px"><img src="images/material/operation/heatbed.jpg" height="300px" style="border-radius: 10px; margin-top: 10px; margin-left: 70px">
+            </div>
+            <span class="source">Bildquelle: reprap.org</span>
+        </article>
+
+        <article>
+            <h3>Heatbed Video</h3>
+            <iframe style="height:450px" src="http://www.youtube.com/embed/QE90bDUaAno" frameborder="0" allowfullscreen></iframe>
+        </article>
+
+        <article id="impl-intro" class="fill teaser_bg">
+            <h3>...von der Idee zum Druck</h3>
+            <h1>Umsetzung</h1>
+        </article>
+
+        <article>
+            <h3>3D Modell erstellen</h3>
+            <ul class="build">
+                <li>Autodesk Inventor</li>
+                <li>Google Sketchup</li>
+                <li>Blender</li>
+                <li>STL Dateiformat</li>
+            </ul>
+            <div class="build">
+                <pre style="font-size:15px; line-height:1.4">
+
+    solid name
+        facet normal n1 n2 n3
+            outer loop
+                vertex p1x p1y p1z
+                vertex p2x p2y p2z
+                vertex p3x p3y p3z
+            endloop
+        endfacet
+    endsolid name
+                </pre>
+            </div>
+        </article>
+
+        <article>
+            <h3>Slicing</h3>
+            <ul class="build">
+                <li>skeinforge</li>
+                <li>Slic3r</li>
+            </ul>
+            <div style="text-align: center; margin-top: 20px" class="build">
+                <img src="images/material/impl/slic3r.png" width="90%">
+            </div>
+        </article>
+
+        <article>
+            <h3>Slicing - Einstellungen</h3>
+            <ul class="build">
+                <li>Layer</li>
+                <li>Infill (Muster, Dichte)</li>
+                <li>Speed</li>
+                <li>Support Material</li>
+                <li>Skirt</li>
+                <li>Filament</li>
+                <li>Cooling</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Slicing - Normal</h3>
+            <div style="text-align: center; margin-top: 20px">
+                <img src="images/material/impl/slicing_wo_support.gif" width="480px">
+            </div>
+        </article>
+
+        <article>
+            <h3>Slicing - Support Material</h3>
+            <div style="text-align: center; margin-top: 20px">
+                <img src="images/material/impl/slicing_w_support.gif" width="480px">
+            </div>
+        </article>
+
+        <article>
+            <h3>Pronterface</h3>
+            <ul class="build">
+                <li>Übertragung zum RAMPS</li>
+                <li>Motorsteuerung</li>
+                <li>Temperaturregelung</li>
+            </ul>
+            <div style="text-align: center; margin-top: 25px" class="build">
+                <img src="images/material/impl/pronterface.png" width="720px">
+            </div>
+        </article>
+
+        <article id="druck-intro" class="fill teaser_bg">
+            <h3>...können wir endlich drucken!?</h3>
+            <h1>Der Druck</h1>
+        </article>
+        
+        <article>
+            <h3>Letzte Einstellungen</h3>
+            <ul class="build">
+                <li>Filament einspannen</li>
+                <li>Abstand HotEnd/Heatbed</li>
+                <li>Aufheizen lassen</li>
+                <li>...</li>
+                <li>Profit!</li>
+            </ul>
+        </article>
+        
+        <article>
+            <h3>Der Druck</h3>
+            <iframe style="height: 450px; width:100%" src="http://www.youtube.com/embed/wCdmYJIW4_M?hd=1" frameborder="0" allowfullscreen></iframe>
+        </article>
+
+        <article>
+            <h3>Ergebnisse</h3>
+            <style>
+                .build.images {
+                    position: relative;
+                    height: 450px;
+                    text-align: center;
+                }
+
+                .build.images li.built {
+                    opacity: 0.1;    
+                }
+
+                .build.images li {
+                    position: absolute;
+                    list-style-type: none;
+                    left:50px;
+                }
+            </style>
+            <ul class="build images">
+                <li><img src="images/material/results/calibration.jpg" height="450">
+                <li><img src="images/material/results/creeper.jpg" height="450">
+                <li><img src="images/material/results/gear.jpg" height="450">
+                <li><img src="images/material/results/enterprise.jpg" height="450">
+                <li><img src="images/material/results/invaders.jpg" height="450">
+                <li><img src="images/material/results/choco_extruder.jpg" height="450">
+                <li><img style="margin-left: 100px;" src="images/material/results/toilet.jpg" height="450">
+            </ul>
+            <!--
+                klopapierrollenhalter, n64 logo,
+                rc car abdeckung, rundumleuchtenhalter, figuren
+                wii bar halter, zahnräder
+            -->
+        </article>
+    
+        <article>
+            <h3>Noch Fragen!?</h3>
+            <ul>
+                <li>Contact: schinken@hackerspace-bamberg.de</LI>
+                <li>Danke an camouflage! (garage-lab.de)</li>
+            </ul>
+        </article>
+
+    </section>
+  </body>
+</html>

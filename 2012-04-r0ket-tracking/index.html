@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>r0ket tr4cking</title>
+
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    #r0ket-intro {
+        background:  url(images/my/r0ket.jpg) 0px 0px no-repeat;
+    }
+
+    #r0ket2-intro {
+        background:  url(images/my/r0ket2.jpg) 0px 0px no-repeat;
+    }
+      
+    #firststeps-intro {
+        background:  url(images/my/firststeps.jpg) 0px 0px no-repeat;
+    }
+      
+    .teaser_bg {
+        background-size: 100%, 100%;  
+        background-color: white;  
+    }
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-io2011'>
+      
+      <article class='biglogo'>
+      </article>
+
+      <article>
+        <h1>
+          r0ket tr4cking
+        </h1>
+        <p>
+          xAndy, schinken
+          <br>
+          March 24, 2012
+        </p>
+      </article>
+
+      <article>
+          <h3>What did we want to create?</h3>
+          <ul class="build">
+              <li>View r0kets at the event</li>
+              <li>Find people</li>
+              <li>Do some awesome HTML5 stuff</li>
+          </ul>
+      </article>
+
+      <article>
+          <h3>Why?</h3>
+          <ul class="build">
+              <li>Because the needed hardware was already setup.</li>
+              <li>No one did this like we intent todo before</li>
+              <li>Nearly every CCCamp'11 visitor owns a r0ket</li>
+              <li>team r0ket selling them 28c3 (~700 pcs)</li>
+          </ul>
+      </article>
+
+      <article id="r0ket-intro" class="fill teaser_bg">
+        <h3>... a quick introduction!</h3>
+        <h1>r0ket</h1>
+      </article>
+      
+      <article>
+        <h3>Hardware</h3>
+        <ul class="build">
+          <li>USB-Port (Mass-Storage, ...)</li>
+          <li>m0dulbus with SPI, I²C, 3.3V, etc..</li>
+          <li>LC-Display Nokia 1200 (96x68)</li>
+          <li>32-bit ARM Cortex-M3 with 32KB flash, 8KB SRAM</li>
+          <li class="red">2.4 GHz Transceiver (OpenBeacon)</li>
+          <li>~4 MiB Dataflash</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          OpenBeacon
+        </h3>
+        <p>OpenBeacon is based on Open Source software and a very flexible and reprogrammable lowcost Open Source RFmodule.</p>
+        <p><a href="http://www.openbeacon.org/">http://www.openbeacon.org/</a></p>
+      </article>
+
+      <article id="firststeps-intro" class="fill teaser_bg">
+          <h3>First steps...</h3>
+      </article>
+
+      <article>
+        <h3>
+          Decisions to make
+        </h3>
+        <ul class="build">
+          <li>Which Platform? <span class="to-build green">Browser</span></li>
+          <li>Which Programming languages? <span class="to-build green">Javascript</span></li>
+          <li>Use and find some Demo-Data (BruCon, ...)</li>
+          <li>Don't overthink everything -&gt; start to code</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          First Version
+        </h3>
+        <ul class="build">
+          <li>Data as DOM-Objects</li>
+          <li>Animation with CSS3 and jQuery</li>
+          <li>Fast to build (3-4 hours)</li>
+          <li class="green" >No own code for animation needed (provided by jQuery)</li>
+        </ul>
+      </article>
+
+      <article class="fill">
+          <h3>Demonstration</h3>
+          <iframe src='demov1.html' scrolling="no" style="overflow: hidden" id="demov1"></iframe>
+
+          <script type="text/javascript">
+              var frame1 = document.getElementById('demov1');
+              frame1.onload = function() {
+                frame1.contentWindow.scrollTo(-30, 200 );
+              };
+          </script>
+
+      </article>
+
+
+      <article>
+        <h3>Problems</h3>
+        <ul class="build" >
+          <li>No livedata</li>
+          <li>Connection problems</li>
+          <li>Only one floor in the demo dataset</li>
+          <li>Invalid data</li>
+          <li>Wrong data (wrong floor numbers)</li>
+        </ul>
+
+      </article>
+
+      <article>
+        <h3>
+            Demo Dataset
+        </h3>
+        <pre style="font-size: 14px; letter-spacing: 0.11em; line-height: 1.25;">
+  &quot;id&quot;:24732,
+  &quot;api&quot;:{&quot;name&quot;:&quot;openbeacon-tracker&quot;,&quot;ver&quot;:&quot;0.5.9-dirty&quot;},
+  &quot;time&quot;:1325193702,
+  &quot;packets&quot;:{
+    &quot;per_key&quot;:[5129439,1,6820,4102,6,0,0,0,0,129179], &quot;rate&quot;:806,
+    &quot;invalid_protocol&quot;:651, &quot;crc_error&quot;:56991, &quot;crc_ok&quot;:5359854
+    },
+  &quot;tag&quot;:[
+    {&quot;id&quot;:1726279719,&quot;px&quot;:695,&quot;py&quot;:734,&quot;nick&quot;:&quot;LongNose&quot;,&quot;reader&quot;:1118},
+    {&quot;id&quot;:1555753420,&quot;px&quot;:563,&quot;py&quot;:831,&quot;nick&quot;:&quot;devdsp&quot;,&quot;reader&quot;:1031,&quot;button&quot;:true},
+    {&quot;id&quot;:3743092209,&quot;px&quot;:768,&quot;py&quot;:91,&quot;nick&quot;:&quot;MiDas&quot;,&quot;reader&quot;:1011,&quot;button&quot;:true},
+    ...
+    {&quot;id&quot;:530924798,&quot;px&quot;:517,&quot;py&quot;:831,&quot;nick&quot;:&quot;TurboJ&quot;,&quot;reader&quot;:1007,&quot;button&quot;:true},
+    {&quot;id&quot;:2468362766,&quot;px&quot;:542,&quot;py&quot;:627,&quot;nick&quot;:&quot;klonfish&quot;,&quot;reader&quot;:1126,&quot;button&quot;:true},
+    {&quot;id&quot;:54603,&quot;px&quot;:528,&quot;py&quot;:520,&quot;key&quot;:2}
+    ],
+  &quot;reader&quot;:[
+    {&quot;id&quot;:1007,&quot;px&quot;:497,&quot;py&quot;:832,&quot;room&quot;:102,&quot;floor&quot;:1,&quot;group&quot;:2},
+    {&quot;id&quot;:1031,&quot;px&quot;:633,&quot;py&quot;:832,&quot;room&quot;:102,&quot;floor&quot;:1,&quot;group&quot;:2},
+    ...
+    {&quot;id&quot;:1686,&quot;px&quot;:286,&quot;py&quot;:492,&quot;room&quot;:307,&quot;floor&quot;:3,&quot;group&quot;:2},
+    {&quot;id&quot;:1118,&quot;px&quot;:676,&quot;py&quot;:858,&quot;room&quot;:308,&quot;floor&quot;:3,&quot;group&quot;:2}
+    ],
+  &quot;edge&quot;:[
+
+    ]
+</pre>
+
+      </article>
+
+      <article>
+          <h3>Lessons learned from v1.0</h3>
+          <ul class="build">
+              <li>Data consistency is crucial!</li>
+              <li class="red">Extremly slow when using CSS animations</li>
+              <li>New features hard to implement</li>
+          </ul>
+      </article>
+
+      <article id="r0ket2-intro" class="fill teaser_bg">
+        <h3>Building v2.0...</h3>
+      </article>
+
+      <article>
+          <h3>New approach</h3>
+          <ul class="build">
+              <li>Keep data consistent
+                    <ul style="margin-top: 14px">
+                        <li>Track floorchanges</li>
+                        <li>r0kets appear/disappear</li>
+                        <li>Reader disconnect</li>
+                        <li>Remove unused data</li>
+                    </ul>
+              </li>
+              <li>Use canvas instead of DOM</li>
+              <li>Draw a floormap</li>
+          </ul>
+      </article>
+
+      <article class="fill">
+          <h3>Demonstration</h3>
+          <iframe src='demov2.html' scrolling="no" style="overflow: hidden" id="demov2"></iframe>
+
+          <script type="text/javascript">
+              var frame = document.getElementById('demov2');
+              frame.onload = function() {
+                frame.contentWindow.scrollTo(0, 260 );
+              };
+          </script>
+
+      </article>
+
+      <article>
+          <h3>Result</h3>
+          <ul class="build">
+              <li>CPU usage has gone down a lot</li>
+              <li>You have to render everything each frame</li>
+              <li>Aligning floors isn't easy</li>
+              <li>OOP helps (even in JS)</li>
+              <li>Javascript with canvas outperforms HTML + CSS animations</li>
+              <li>Javascript performance tweaks (prototypes instead of lambdas)</li>
+          </ul>
+      </article>
+
+      <article>
+          <h3>Ideas</h3>
+          <ul class="build">
+            <li>Stalk a nickname</li>
+            <li>Tracing pathes</li>
+            <li>Highscore of walked distance</li>
+            <li>Social graphs</li>
+            <li>Epidemic simulations
+              <ul class="build" style="margin-top: 14px">
+                <li>e.g. Zombie apocalypse</li>
+              </ul>
+            </li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>About</h3>
+        <ul class="build">
+          <li>GitHub Project: http://bckspc.de/RTgit</li>
+          <li>Project Wiki: http://bckspc.de/RTwiki</li>
+          <li>Thx to the r0ket-Team for the amazing work</li>
+          <li>Authors of tr4cking:
+            <ul style="margin-top: 14px">
+              <li>xAndy</li>
+              <li>schinken</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+    </section>
+  </body>
+</html>
