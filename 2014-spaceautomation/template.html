@@ -1,0 +1,605 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  <style>
+    body {
+      background-image: radial-gradient(50% 50%, #b1dfff 0%, #356bc9 890px);
+    }
+    .image-grid li:before, .remove-bullet li:before {
+      content: '';
+    }
+
+    .image-grid li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+
+    .teaser-image {
+      border-radius: 50%;
+      width: 240px;
+      position: absolute;
+      right: 50px;
+      top: 50px;
+    }
+  </style>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/backspace/icon.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Übersicht</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Probleme</li>
+        <li>Lösungen</li>
+        <li>Automatisierungslösungen</li>
+        <li>Demo</li>
+        <li>Q &amp; A</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Über mich</h2>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/me.png" class="teaser-image">
+      <ul>
+        <li>Nickname: schinken</li>
+        <li>Webentwickler</li>
+        <li>Python, <span style="color: #ccc">PHP</span>, HTML, CSS, JS</li>
+        <li>"Internet of Things"</li>
+        <li>Mitglied backspace e.V.</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>backspace e.V.</h2>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/backspace-icon.png" class="teaser-image">
+      <ul>
+        <li>Bamberg</li>
+        <li>43 Mitglieder</li>
+        <li>~125 m²</li>
+        <li>Gegründet am 23.10.2011</li>
+      </ul>
+    </article>
+  </slide>
+
+  <!--
+    Probleme
+  -->
+
+  <slide>
+    <hgroup>
+      <h2>Probleme</h2>
+      <h3>Verteilte Stromversorgung</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/strom.jpg" class="teaser-image">
+      <ul class="build">
+        <li>Stromversorgung der Projekte
+          <ul>
+            <li>Steckernetzteile</li>
+            <li>Schalter</li>
+            <li>Steckerleisten</li>
+            <li>Sicherungen</li>
+          </ul>
+        </li>
+        <li>Probleme
+          <ul>
+            <li>Überblick nur noch bei einigen wenigen</li>
+            <li>Infrastruktur versehentlich abgeschaltet</li>
+            <li>Unnötige Stromkosten durch vergessene Geräte</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <h3>Nicht ausschalten Beispiele</h3>
+        <ul>
+          <li>Kühlschrank</li>
+          <li>Server</li>
+          <li>Raspberrys</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Probleme</h2>
+      <h3>Verteilte Stromversorgung (Beispiele)</h3>
+    </hgroup>
+    <article>
+      <ul class="image-grid">
+        <li><img src="images/backspace/slides/nyancat-wall.jpg" width="200">
+            <p>NyanCat Wall</p>
+        </li>
+        <li><img src="images/backspace/slides/light-bars.jpg" width="200">
+            <p>LED-Bars</p>
+        </li>
+        <li><img src="images/backspace/slides/light-shelf.jpg" width="200">
+            <p>LED-Regal</p>
+        </li>
+        <li><img src="images/backspace/slides/ledboard.jpg" width="200">
+            <p>Ledboard</p>
+        </li>
+      </ul>
+
+      <ul class="build">
+        <li>Musikanlage</li>
+        <li>Mediacenter</li>
+        <li>Beamer</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Probleme</h2>
+      <h3>Sonstiges</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Heizungsthermostate</li>
+        <li>Jalousien</li>
+        <li>Generelle Beleuchtung</li>
+        <li>Türen</li>
+      </ul>
+    </article>
+  </slide>
+
+  <!--
+    Lösungsansätze
+  -->
+
+  <slide>
+    <hgroup>
+      <h2>Lösungsansätze</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Die Versuche
+          <ul>
+            <li>Raum-FAQ</li>
+            <li>Abschaltbares markieren</li>
+            <li>Mit Steckerleisten zusammenfassen</li>
+            <li>Mitgliedern alles erklären</li>
+          </ul>
+        </li>
+        <li>Der Wunsch
+          <ul>
+            <li>Hinweise/Notifications</li>
+            <li>Ein Knopf für alles</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Fehleranfällig</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Lösungsansätze</h2>
+      <h3>Funksteckdosen</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/funksteckdosen.jpg" class="teaser-image">
+
+      <ul class="build">
+        <li>ELRO AB440S
+          <ul>
+            <li>Extrem günstig (3 Stk / 10€)</li>
+            <li>433 Mhz Funk</li>
+            <li>Einfach bedienbar</li>
+          </ul>
+        <li>Hacken
+          <ul>
+            <li>Eigene Platine mit USB</li>
+            <li>Mehr Power == Zuverlässiger</li>
+            <li>1024 statt 4 Steckdosen</li>
+            <li>REST-API</li>
+          </ul>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Geprüfte Steckdosen</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Lösungsansätze</h2>
+      <h3>Relais im Sicherungskasten</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/powerctrl.jpg" class="teaser-image">
+
+      <ul>
+        <li>Hutschienengehäuse</li>
+        <li>Teure Relais</li>
+        <li>24 Volt</li>
+        <li>Beispiel: Lichtsteuerung von felicitus</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Lösungsansätze</h2>
+      <h3>Heizungsthermostate</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/hr20.jpg" class="teaser-image">
+
+      <ul>
+        <li>ELVs HomeMatic</li>
+        <li>Funkthermostate 886 Mhz</li>
+        <li>Veschlüsselt</li>
+        <li>Preis ~30€ pro Thermostat</li>
+        <li>Benötigt Master</li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        Alternative HR20 mit RFM12 Modul
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Lösungsansätze</h2>
+      <h3>Sonstiges</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/harm.jpg" class="teaser-image">
+
+      <ul>
+        <li>Tür- und Schlosskontakte (Reed)</li>
+        <li>Fensterkontakte</li>
+        <li>Temperatursensoren</li>
+      </ul>
+    </article>
+  </slide>
+
+  <!--
+    OpenHab
+  -->
+
+  <slide>
+    <hgroup>
+      <h2>Automatisierung</h2>
+      <h3>Middleware</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+      <ul>
+        <li>Verbinden aller Komponenten</li>
+        <li>Scripten von Events</li>
+        <li>Einfach konfigurier- und erweiterbar</li>
+        <li>Plattformunabhängig</li>
+        <li>Vorhandene Projekte
+          <ul>
+            <li>FHEM (perl)</li>
+            <li>OpenHAB (java)</li>
+          </ul>
+        </li>
+      </ul>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Features</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/spaceapp.png" class="teaser-image">
+
+      <ul>
+        <li>Einfach konfigurierbar</li>
+        <li>Scriptbar über eigene Scriptsprache</li>
+        <li>Bindings für alles™</li>
+        <li>Webinterface</li>
+        <li>Apps für iOS/Android</li>
+        <li>Auto-Discovery</li>
+        <li>Open Source</li>
+      </ul>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Bindings</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/spaceapp.png" class="teaser-image">
+
+      <ul class="build remove-bullet">
+        <li style="float:left">
+          <ul>
+            <li>HTTP</li>
+            <li>DMX</li>
+            <li>HomeMatic</li>
+            <li>SNMP</li>
+            <li>MQTT</li>
+            <li>MPD</li>
+            <li>iCal / Calendar</li>
+          </ul>
+        </li>
+        <li style="float:left; margin-left: 80px;">
+          <ul>
+            <li>Asterisk</li>
+            <li>KNX</li>
+            <li>digitalSTROM</li>
+            <li>GPIO</li>
+            <li>OpenEnergyMonitor</li>
+            <li>OneWire</li>
+            <li>Samsung TV</li>
+            <li>XBMC</li>
+            <li>Z-Wave</li>
+            <li>... 60 andere</li>
+          </ul>
+        </li>
+      </ul>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Items</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+
+      <strong>Alles ist ein Item</strong>
+      <br>
+      <br>
+
+      <pre class="prettyprint">
+// type name    title   symbol  { binding="config" }
+
+// http
+Switch wr_alarm "Alarm" <siren> { http=">[ON:POST:http://webrelais/relais/5]
+>[OFF:DELETE:http://webrelais/relais/5]" }
+
+Number th_hc_win_L "Hackcenter window left [%.1f °C]" <heating> { homematic="id=KEQ42231337,
+channel=4, parameter=SET_TEMPERATURE" }
+
+Switch Mpd_hc_playback "MPD Start/Pause" { mpd="ON:hackcenter:play,
+OFF:hackcenter:pause" }
+
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Items</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+      <strong>Beispielstruktur</strong>
+      <br>
+      <br>
+      <pre class="prettyprint">
+
+items/
+├── 00-groups.items
+├── 01-groupswitches.items
+├── 02-webrelais.items
+├── 03-funkstrom.items
+├── 04-snmp.items
+├── 05-thermostats.items
+└── 06-mpd.items
+
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Sitemap</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+      <pre class="prettyprint">
+Text label="Lounge" icon="sofa" {
+  Frame label="Temperature" {
+    Text item=temp_lounge label="Temperatur Decke [%.2f °C]"
+  }
+  Frame label="Control" {
+    Switch item=ShutdownLounge label="Shutdown" mappings=[OFF="Engage"]
+    Switch item=fs_beamer
+    Switch item=fs_nyancat
+  }
+  Frame label="Information" {
+    Text item=account_balance
+    Text item=temp_outdoor
+  }
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Scripting</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+      <pre class="prettyprint">
+rule "inbound Call"
+  when Item Incoming_Call_No received update
+then 
+  val CallType call = Incoming_Call_No.state as CallType
+  val String mailSubject =
+  "Anruf von Nummer " + call.origNum + " -> " + call.destNum
+  sendMail( "us...@domain.de" , mailSubject , "");
+end
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Scripting</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+      <pre class="prettyprint">
+rule "Switch on welcome light"
+when   
+  Item contactFrontDoorLock changed from CLOSED to OPEN
+then   
+  sendCommand(corridorLight, ON)
+end
+      </pre>
+
+      <pre class="prettyprint">
+rule "checkForFridgeOpen"
+when   
+  Time cron "0 * * * * ?"
+then 
+  // do stuff
+end
+    </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Designer</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+      <img src="images/backspace/slides/designer.png" style="position: relative; z-index: 3">
+    </article>
+  </slide>
+
+  
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>App</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+
+      <div style="float:right; position: relative; z-index: 10">
+        <img src="images/backspace/slides/habdroid.webp" width="200" style="margin-right: 40px">
+        <img src="images/backspace/slides/openhab-ios.jpg" width="200">
+      </div>
+
+      <ul>
+        <li>Auto discovery</li>
+        <li>Statusänderung realtime</li>
+        <li>Automatisches Update bei Configänderung</li>
+      </ul>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenHAB</h2>
+      <h3>Demo / Sitemap Beispiel</h3>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+      <p>Demo Time</p>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Fragen?</h2>
+    </hgroup>
+    <article>
+      <img src="images/backspace/slides/robot.png" class="teaser-image">
+      <ul>
+        <li>twitter: @sch1nken</li>
+        <li>xmpp: schinken@jabber.ccc.de</li>
+        <li>mail: schinken@hackerspace-bamberg.de</li>
+        <li>github: http://github.com/schinken</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+</slides>
+
+</body>
+</html>
