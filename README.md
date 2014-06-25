@@ -11,7 +11,7 @@ Here's a list of talks i held at different conventions or at our local hackerspa
 ## 2014-02 dmx lighting
 
 * slides: http://schinken.github.io/talks/2014-02-dmx-lighting/
-* where: backspace
+* where: backspace, 02.2014
 
 Info: The slides also control the lighting during the presentation in the room. You won't experience the same when you're looking at the slides ;)
 
